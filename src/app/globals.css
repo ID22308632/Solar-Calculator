@@ -7,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-mono: Consolas, monospace;
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -46,6 +46,17 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+@media print {
+  @page { size: A4; margin: 16mm; }
+  html, body, main { height: auto !important; overflow: visible !important; background: white !important; color: black !important; }
+  .assessment-header, .assessment-status, .report-controls, .report-page > .step-heading { display: none !important; }
+  .report-page { max-width: none !important; padding: 0 !important; }
+  .report { border: 0 !important; box-shadow: none !important; padding: 0 !important; }
+  .report dl { display: grid; grid-template-columns: 1fr 1fr; }
+  .report dl > div, .report p, .report h2 { break-inside: avoid; }
+  .report dd { overflow-wrap: anywhere; }
 }
 
 :root {
